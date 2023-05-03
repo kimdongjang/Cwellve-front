@@ -3,7 +3,7 @@ import Head from 'next/head'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from './components/layout';
 import { getSortedPostsData } from '../lib/posts';
-import { Date } from './components/date';
+import Date from './components/date';
 
 // 이 함수가 반환되면 아래에 Home 함수에 props가 전달된다.
 export const getStaticProps = async () => {
@@ -37,7 +37,7 @@ export default function Home({ allPostsData }) {
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date && date} />
+                <Date dateString={date} />
               </small>
             </li>
           ))}
