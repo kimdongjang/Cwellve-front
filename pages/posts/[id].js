@@ -2,7 +2,7 @@ import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts"
 import Layout from "../components/layout";
 import utilStyles from '/styles/utils.module.css'
-import { Date } from "../components/date";
+import Date from "../components/date";
 
 /** posts 폴더에 있는 모든 포스트의 id를 가져오고 paths를 반환해서 페이지를 생성 */
 export const getStaticPaths = async () => {
