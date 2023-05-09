@@ -6,8 +6,6 @@ import Document, {
   DocumentProps,
   DocumentContext,
 } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import { ServerStyleSheets } from "@mui/styles";
 import createEmotionServer from "@emotion/server/create-instance";
 import { roboto } from "../styles/theme";
 import createEmotionCache from "../util/createEmotionCache";

@@ -6,7 +6,6 @@ import { getSortedPostsData } from "../lib/posts";
 import Date from "./components/date";
 import { GetStaticProps } from "next";
 import Button from "@mui/material/Button";
-import styled from "styled-components";
 
 export default function Home({
   allPostsData,
