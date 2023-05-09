@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
+import { Theme } from "@emotion/react";
 
 export const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -9,7 +10,7 @@ export const roboto = Roboto({
   fallback: ["Helvetica", "Arial", "sans-serif"],
 });
 
-const lightPalette = {
+const lightPalette: Theme = {
   // 밝은 모드 테마의 palette 설정
   palette: {
     primary: {
@@ -28,7 +29,7 @@ const lightPalette = {
   },
 };
 
-const darkPalette = {
+const darkPalette: Theme = {
   // 다크 모드 테마의 palette 설정
   palette: {
     primary: {
