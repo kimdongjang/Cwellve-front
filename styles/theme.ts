@@ -21,6 +21,7 @@ const lightPalette = {
     error: {
       main: red.A400,
     },
+    mode: "light",
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
@@ -39,6 +40,7 @@ const darkPalette = {
     error: {
       main: red.A400,
     },
+    mode: "dark",
   },
   typography: {
     fontFamily: roboto.style.fontFamily,

@@ -3,9 +3,15 @@ import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHook";
+import { selectThemeStore, setThemeState } from "../../../store/themeReducer";
 
 const Top = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
+  const theme = useAppSelector((state) => state.themeStore.theme);
+
+  const dispatch = useAppDispatch();
+  const authState = useAppSelector(selectThemeStore);
 
   return (
     <div>
@@ -21,9 +27,20 @@ const Top = () => {
           p: 3,
         }}
       >
-        {theme.palette.mode}
-        <IconButton sx={{ ml: 1 }} color="inherit">
-          {theme.palette.mode === "dark" ? (
+        {/* {theme.palette.mode} */}
+        {theme}
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={() => {
+            // theme.palette.mode === "dark"
+            theme === "dark"
+              ? dispatch(setThemeState("light"))
+              : dispatch(setThemeState("dark"));
+          }}
+          color="inherit"
+        >
+          {theme === "dark" ? (
+            // {theme.palette.mode === "dark" ? (
             <Brightness7Icon />
           ) : (
             <Brightness4Icon />

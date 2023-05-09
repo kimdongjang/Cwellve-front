@@ -6,14 +6,15 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import createEmotionCache from "../util/createEmotionCache";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { useTheme, createTheme } from "@mui/material/styles";
-import { darkTheme, lightTheme } from "../styles/theme";
 import { RecoilRoot } from "recoil";
 import { useRecoilState } from "recoil";
 import Top from "./components/layout/top";
-import { themeStore } from "../store/themeStore";
+import { wrapper } from "./../store/store";
+import { useAppSelector } from "../hooks/reduxHook";
+import { lightTheme, darkTheme } from "../styles/theme";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,20 +24,32 @@ export interface MyAppProps extends AppProps {
 
 const App = (props: MyAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const themeScheme = useAppSelector((state) => state.themeStore.theme);
 
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  console.log(prefersDarkMode);
-
-  //   const theme = useTheme();
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
+  const prefersDarkMode = useMediaQuery(
+    `(prefers-color-scheme: ${themeScheme})`
   );
+
+  // const theme = React.useMemo(
+  //   () =>
+  //     createTheme({
+  //       palette: {
+  //         mode: prefersDarkMode ? "dark" : "light",
+  //       },
+  //     }),
+  //   [prefersDarkMode]
+  // );
+
+  const theme = useMemo(() => {
+    console.log(themeScheme);
+    switch (themeScheme) {
+      case "light":
+        return lightTheme;
+      case "dark":
+        return darkTheme;
+    }
+  }, [themeScheme]);
+  console.log(theme);
 
   //   const [theme, setTheme] = useRecoilState(themeStore);
   //   const defaultTheme = useTheme();
@@ -64,4 +77,4 @@ const App = (props: MyAppProps) => {
   );
 };
 
-export default App;
+export default wrapper.withRedux(App);
