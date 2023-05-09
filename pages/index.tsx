@@ -5,6 +5,8 @@ import Layout, { siteTitle } from "./components/layout";
 import { getSortedPostsData } from "../lib/posts";
 import Date from "./components/date";
 import { GetStaticProps } from "next";
+import Button from "@mui/material/Button";
+import styled from "styled-components";
 
 export default function Home({
   allPostsData,
@@ -20,7 +22,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={`${utilStyles.headingMd}`}>
         <p>[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
@@ -38,6 +40,7 @@ export default function Home({
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
+              <Button variant="contained">Search</Button>
             </li>
           ))}
         </ul>
