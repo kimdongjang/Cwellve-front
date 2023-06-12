@@ -3,9 +3,12 @@ import Link from "next/link";
 import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../../styles/utils.module.css";
+import Top from "./layout/top";
 
 const name = "my name";
 export const siteTitle = "Next.js sample web";
+
+
 
 export default function Layout({
   children,
@@ -15,7 +18,7 @@ export default function Layout({
   home?: Boolean;
 }) {
   return (
-    <div className={styles.container}>
+    <div >
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -32,7 +35,7 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
@@ -64,7 +67,9 @@ export default function Layout({
             </h2>
           </>
         )}
-      </header>
+      </header> */}
+      {/* 라이트모드 다크모드 */}
+      <Top />
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>

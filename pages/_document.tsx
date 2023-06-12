@@ -8,7 +8,7 @@ import Document, {
 } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import { roboto } from "../styles/theme";
-import createEmotionCache from "../util/createEmotionCache";
+import createEmotionCache from "../utils/createEmotionCache";
 import { MyAppProps } from "./_app";
 import { AppType } from "next/app";
 

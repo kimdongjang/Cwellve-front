@@ -5,12 +5,10 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import createEmotionCache from "../util/createEmotionCache";
+import createEmotionCache from "../utils/createEmotionCache";
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { useTheme, createTheme } from "@mui/material/styles";
-import { RecoilRoot } from "recoil";
-import { useRecoilState } from "recoil";
 import Top from "./components/layout/top";
 import { wrapper } from "./../store/store";
 import { useAppSelector } from "../hooks/reduxHook";
@@ -49,7 +47,6 @@ const App = (props: MyAppProps) => {
         return darkTheme;
     }
   }, [themeScheme]);
-  console.log(theme);
 
   //   const [theme, setTheme] = useRecoilState(themeStore);
   //   const defaultTheme = useTheme();
@@ -62,17 +59,14 @@ const App = (props: MyAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <RecoilRoot>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Top />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </RecoilRoot>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </CacheProvider>
   );
 };

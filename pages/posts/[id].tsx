@@ -2,7 +2,7 @@ import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Layout from "../components/layout";
 import utilStyles from "/styles/utils.module.css";
-import Date from "../components/date";
+import Date from "../../utils/date";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function Post({
