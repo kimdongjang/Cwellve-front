@@ -4,6 +4,7 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../../styles/utils.module.css";
 import Top from "./layout/top";
+import { Navbar } from "./layout/Navbar";
 
 const name = "my name";
 export const siteTitle = "Next.js sample web";
@@ -68,8 +69,7 @@ export default function Layout({
           </>
         )}
       </header> */}
-      {/* 라이트모드 다크모드 */}
-      <Top />
+      <Navbar />
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
