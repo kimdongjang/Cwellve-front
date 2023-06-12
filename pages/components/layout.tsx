@@ -3,8 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../../styles/utils.module.css";
-import Top from "./layout/top";
-import { Navbar } from "./layout/Navbar";
+import { Navbar } from "./Navbar";
 
 const name = "my name";
 export const siteTitle = "Next.js sample web";
@@ -19,7 +18,7 @@ export default function Layout({
   home?: Boolean;
 }) {
   return (
-    <div >
+    <div className={styles.layout}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta

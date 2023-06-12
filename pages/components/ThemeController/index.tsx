@@ -6,7 +6,7 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHook";
 import { selectThemeStore, setThemeState } from "../../../store/themeReducer";
 
-const Top = () => {
+const ThemeController = () => {
   // const theme = useTheme();
   const theme = useAppSelector((state) => state.themeStore.theme);
 
@@ -51,4 +51,4 @@ const Top = () => {
   );
 };
 
-export default Top;
+export default ThemeController;

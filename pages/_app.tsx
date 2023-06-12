@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/_globals.css";
 import { AppProps } from "next/app";
 import { ThemeProvider, PaletteMode } from "@mui/material";
 import { CacheProvider, EmotionCache } from "@emotion/react";
@@ -9,7 +9,6 @@ import createEmotionCache from "../utils/createEmotionCache";
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { useTheme, createTheme } from "@mui/material/styles";
-import Top from "./components/layout/top";
 import { wrapper } from "./../store/store";
 import { useAppSelector } from "../hooks/reduxHook";
 import { lightTheme, darkTheme } from "../styles/theme";

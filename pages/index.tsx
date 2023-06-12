@@ -7,7 +7,7 @@ import { getSortedPostsData } from "../lib/posts";
 import Date from "../utils/date";
 import Button from "@mui/material/Button";
 import utilStyles from "../styles/utils.module.css";
-import indexStyles from "../styles/index.module.css";
+import indexStyles from "./index.module.css";
 
 import MainSection from '../public/images/MainSection.svg';
 
