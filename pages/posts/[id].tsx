@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Layout from "../components/layout";
-import utilStyles from "/styles/utils.module.css";
 import Date from "../../utils/date";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -20,8 +19,8 @@ export default function Post({
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className='headingXl'>{postData.title}</h1>
+        <div className='utilStyles'>
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

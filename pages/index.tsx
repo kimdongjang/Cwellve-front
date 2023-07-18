@@ -6,8 +6,6 @@ import Layout, { siteTitle } from "./components/layout";
 import { getSortedPostsData } from "../lib/posts";
 import Date from "../utils/date";
 import Button from "@mui/material/Button";
-import utilStyles from "../styles/utils.module.css";
-import indexStyles from "./index.module.css";
 
 import MainSection from '../public/images/MainSection.svg';
 
@@ -38,9 +36,9 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <div>
-        <MainSection className={indexStyles.mainBackgroundSvg} width={"100%"} height={"100%"} />
+        <MainSection width={"100%"} height={"100%"} />
       </div>
-      <section className={`${utilStyles.headingMd}`}>
+      <section className='headingMd'>
         <p>[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}

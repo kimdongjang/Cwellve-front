@@ -30,8 +30,7 @@
     "recoil": "^0.7.7",
     "redux-logger": "^3.0.6",
     "remark": "^14.0.2",
-    "remark-html": "^15.0.2",
-    "zustand": "^4.3.8"
+    "remark-html": "^15.0.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",

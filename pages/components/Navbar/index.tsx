@@ -14,7 +14,6 @@ export const Navbar = () => {
                         <li><a>시스템</a></li>
                         <li><a>고객지원</a></li>
                     </ul>
-
                 </nav>
             </div>
         </header>)

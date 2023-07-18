@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Head from "next/head";
-import utilStyles from "../styles/utils.module.css";
 import Layout, { siteTitle } from "../pages/components/layout";
 import { getSortedPostsData } from "../lib/posts";
 import Date from "../utils/date";
@@ -32,7 +31,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd}`}>
+      <section className='headingMd'>
         <p>[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
@@ -40,14 +39,14 @@ export default function Home({
         </p>
       </section>
       {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section className='headingMd padding1px'>
+        <h2 className='headingLg'>Blog</h2>
+        <ul className='list'>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className='listItem' key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className='lightText'>
                 <Date dateString={date} />
               </small>
               <Button variant="contained">Search</Button>
