@@ -10,9 +10,9 @@ import createEmotionCache from "../utils/createEmotionCache";
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { useTheme, createTheme } from "@mui/material/styles";
-import { wrapper } from "./../store/store";
-import { useAppSelector } from "../hooks/reduxHook";
+import { wrapper } from "../store/store";
 import { lightTheme, darkTheme } from "../utils/theme";
+import { useAppSelector } from "../hooks/reduxHook";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -28,18 +28,7 @@ const App = (props: MyAppProps) => {
     `(prefers-color-scheme: ${themeScheme})`
   );
 
-  // const theme = React.useMemo(
-  //   () =>
-  //     createTheme({
-  //       palette: {
-  //         mode: prefersDarkMode ? "dark" : "light",
-  //       },
-  //     }),
-  //   [prefersDarkMode]
-  // );
-
-  const theme = useMemo(() => {
-    console.log(themeScheme);
+  const theme: any = useMemo(() => {
     switch (themeScheme) {
       case "light":
         return lightTheme;
@@ -47,15 +36,6 @@ const App = (props: MyAppProps) => {
         return darkTheme;
     }
   }, [themeScheme]);
-
-  //   const [theme, setTheme] = useRecoilState(themeStore);
-  //   const defaultTheme = useTheme();
-  //   useEffect(() => {
-  //     setTheme(defaultTheme.palette.mode);
-  //   }, []);
-
-  //   const isDarkMode = true; // 다크 모드 설정 여부를 가져오는 로직
-  //   const theme = isDarkMode ? darkTheme : lightTheme;
 
   return (
     <CacheProvider value={emotionCache}>

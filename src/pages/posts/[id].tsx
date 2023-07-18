@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import Layout from "../components/layout";
+import RootLayout from "../components/layout";
 import Date from "../../utils/date";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -14,18 +14,18 @@ export default function Post({
   };
 }) {
   return (
-    <Layout>
+    <RootLayout>
       <Head>
         <title>{postData.title}</title>
       </Head>
       <article>
         <h1 className='headingXl'>{postData.title}</h1>
         <div className='utilStyles'>
-          <Date dateString={postData.date} />
+          {/* <Date dateString={postData.date} /> */}
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </Layout>
+    </RootLayout>
   );
 }
 
@@ -41,8 +41,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 /** 빌드시 데이터를 패치하는 함수 props를 반환. */
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string);
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+  const postData = await getPostData(params.id);
   return {
     props: {
       postData,

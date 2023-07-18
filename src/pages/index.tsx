@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
-import Layout, { siteTitle } from "../pages/components/layout";
-import { getSortedPostsData } from "../lib/posts";
-import Date from "../utils/date";
 import { GetStaticProps } from "next";
+
+import RootLayout, { siteTitle } from "./components/layout";
+import { getSortedPostsData } from "../lib/posts";
 import Button from "@mui/material/Button";
+
+import MainSection from '../../public/images/MainSection.svg';
 
 // 이 함수가 반환되면 아래에 Home 함수에 props가 전달된다.
 export const getStaticProps: GetStaticProps = async () => {
@@ -16,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-
+// 메인 진입점
 export default function Home({
   allPostsData,
 }: {
@@ -27,10 +29,14 @@ export default function Home({
   }[];
 }) {
   return (
-    <Layout home>
+    <RootLayout home>
       <Head>
+        {/* 웹 페이지 이름 */}
         <title>{siteTitle}</title>
       </Head>
+      <div>
+        <MainSection width={"100%"} height={"100%"} />
+      </div>
       <section className='headingMd'>
         <p>[Your Self Introduction]</p>
         <p>
@@ -38,22 +44,6 @@ export default function Home({
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className='headingMd padding1px'>
-        <h2 className='headingLg'>Blog</h2>
-        <ul className='list'>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className='listItem' key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className='lightText'>
-                <Date dateString={date} />
-              </small>
-              <Button variant="contained">Search</Button>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
+    </RootLayout>
   );
 }

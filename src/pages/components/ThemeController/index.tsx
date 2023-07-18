@@ -3,8 +3,8 @@ import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHook";
 import { selectThemeStore, setThemeState } from "../../../store/themeReducer";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHook";
 
 const ThemeController = () => {
   // const theme = useTheme();
