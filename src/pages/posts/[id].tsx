@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import RootLayout from "../components/layout";
+import RootLayout from "../_rootLayout";
 import Date from "../../utils/date";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -29,8 +29,13 @@ export default function Post({
   );
 }
 
+// 호출순서
+// 1. getStaticPaths
+// 2. getStaticProps
+
 /** posts 폴더에 있는 모든 포스트의 id를 가져오고 paths를 반환해서 페이지를 생성 */
 export const getStaticPaths: GetStaticPaths = async () => {
+  console.log("getStaticPaths")
   const paths = await getAllPostIds();
 
   // Fallback: paths에서 리턴되지 않은 경로에 대해 false일 경우에는 404를 전달함.
@@ -42,6 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 /** 빌드시 데이터를 패치하는 함수 props를 반환. */
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+  console.log("getStaticProps")
   const postData = await getPostData(params.id);
   return {
     props: {

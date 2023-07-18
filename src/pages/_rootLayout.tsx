@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
-import Navbar from "./Navbar/navbar";
+import Navbar from "../components/Navbar/navbar";
+import { useTheme } from "next-themes"
 
 const name = "my name";
 export const siteTitle = "Next.js sample web";
@@ -16,6 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
   home?: Boolean;
 }) {
+  // systme,light | dark
+  const { setTheme, theme } = useTheme()
+  console.log(theme)
+
   return (
     <div className='layout'>
       <Head>

@@ -1,7 +1,9 @@
 import "../styles/_global.scss";
 
 import { AppProps } from "next/app";
-import { ThemeProvider, PaletteMode } from "@mui/material";
+// import { ThemeProvider, PaletteMode } from "@mui/material";
+import { ThemeProvider } from "../../src/components/Provider/theme-provider" //test
+
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -42,11 +44,13 @@ const App = (props: MyAppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {/* <ThemeProvider theme={theme}> */}
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
+      {/* </ThemeProvider> */}
     </CacheProvider>
   );
 };

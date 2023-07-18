@@ -1,11 +1,15 @@
 // import { FiAlignJustify } from "react-icons/fi";
 // import style from './Navbar.module.scss'
 
+import ThemeController from "../ThemeController";
+
+
 const Navbar = () => {
     return (
         <header className='navbar'>
             <div className='navbarWrap'>
                 {/* <FiAlignJustify /> */}
+                <ThemeController />
                 <nav className='nav'>
                     <ul>
                         <li><a>회사소개</a></li>

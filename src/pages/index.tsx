@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import RootLayout, { siteTitle } from "./components/layout";
+import RootLayout, { siteTitle } from "./_rootLayout";
 import { getSortedPostsData } from "../lib/posts";
 import Button from "@mui/material/Button";
 
