@@ -4,5 +4,8 @@
 @import 'abstracts/mixins';
 
 @import 'layout/header';
+@import 'layout/layout';
 
-@import 'components/navbar';
+@import 'components/header';
+@import 'components/thread';
+@import 'components/nav';

@@ -34,15 +34,15 @@ export default function Home({
         {/* 웹 페이지 이름 */}
         <title>{siteTitle}</title>
       </Head>
-      <div>
-        <MainSection width={"100%"} height={"100%"} />
-      </div>
-      <section className='headingMd'>
-        <p>[Your Self Introduction]</p>
+      <section className="navWrap">
+
+      </section>
+      <section className='threadWrap'>
+        {/* <p>[Your Self Introduction]</p>
         <p>
           (This is a sample website - you’ll be building a site like this on{" "}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        </p> */}
       </section>
     </RootLayout>
   );

@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
-import Navbar from "../components/Navbar/navbar";
+import Header from "../components/Header";
 import { useTheme } from "next-themes"
 
 const name = "my name";
-export const siteTitle = "Next.js sample web";
+export const siteTitle = "Cwellve";
 
 
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   console.log(theme)
 
   return (
-    <div className='layout'>
+    <div className='rootLayout'>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -39,7 +39,7 @@ export default function RootLayout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Navbar />
+      <Header />
       <main>{children}</main>
       {!home && (
         <div className='backToHome'>

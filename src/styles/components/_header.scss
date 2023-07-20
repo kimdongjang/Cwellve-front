@@ -1,0 +1,95 @@
+@import '../abstracts/mixins';
+
+.headerWrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 90px;
+
+  // &:hover {
+  //   opacity: 1;
+  //   background-color: #fff;
+  //   color: black;
+  // }
+
+  @include mobile {
+    height: 3rem;
+    background-color: $back-ground-color;
+    border-radius: 0.7rem;
+
+    .title {
+      width: 100%;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.menuWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include mobile {
+    margin-right: 0.5rem;
+    .listWrap {
+      position: absolute;
+      top: 0;
+      right: 0%;
+      width: 90%;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      z-index: 1;
+      background-color: $back-ground-color;
+      transition: all 0.3s ease-out;
+      .icon {
+        margin: 1rem;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          margin: 0.5rem;
+
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  color: white;
+  display: none;
+  @include mobile {
+    color: white;
+    display: block;
+  }
+}
+
+.overlay {
+  @include mobile {
+    background: #111;
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 200vh;
+    opacity: 0.5;
+  }
+}
+
+.LeftFadeInStart {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.LeftFadeInEnd {
+  opacity: 0;
+  transform: translateX(100%);
+}
