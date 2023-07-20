@@ -1,0 +1,23 @@
+.leftnav {
+  width: 20%;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navWrap {
+  border: $background-color 2px solid;
+  border-radius: 1rem;
+  height: 14rem;
+  margin: 1rem;
+  width: 30%;
+
+  position: sticky;
+  top: 10%;
+
+  @include mobile {
+    position: inherit;
+    width: 100%;
+  }
+}

@@ -1,6 +1,12 @@
 .threadWrap {
-  border: $back-ground-color 2px solid;
+  border: $background-color 2px solid;
   border-radius: 1rem;
-  height: 100vh;
+  height: 400vh;
   margin: 1rem;
+
+  width: 60%;
+
+  @include mobile {
+    width: 100%;
+  }
 }
